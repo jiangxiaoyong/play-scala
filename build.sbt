@@ -7,6 +7,7 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.11.7"
 
 libraryDependencies ++= Seq(
+  "org.apache.kafka" % "kafka_2.11" % "0.10.0.0",
   jdbc,
   cache,
   ws,
