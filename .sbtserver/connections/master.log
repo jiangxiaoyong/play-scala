@@ -1,7 +1,32 @@
-New log file opened at Thu Jul 14 21:54:44 EDT 2016 by 1155@jxys-MacBook-Pro.local
-Taking next connection to: 49606
-New client attempting to connect on port: 49607-49606
-  Address = /192.168.0.11:49606
-This client on port 49607 has uuid 6cb3c4f0-7702-4f5e-ab98-e93e7c719730 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-6cb3c4f0-7702-4f5e-ab98-e93e7c719730
-Taking next connection to: 49606
+New log file opened at Fri Jul 15 16:57:21 EDT 2016 by 2157@jxys-MacBook-Pro.local
+Taking next connection to: 51013
+New client attempting to connect on port: 51014-51013
+  Address = /192.168.99.1:51013
+This client on port 51014 has uuid 2a4dcf6e-fbf4-481d-9bb3-2178d41edd18 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-2a4dcf6e-fbf4-481d-9bb3-2178d41edd18
+Taking next connection to: 51013
+New client attempting to connect on port: 51016-51013
+  Address = /192.168.99.1:51013
+Handshake exception on socket: 51016
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:209)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 51013
+New client attempting to connect on port: 51017-51013
+  Address = /192.168.99.1:51013
+This client on port 51017 has uuid 0121093f-67e6-45f6-b252-80232938087e configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-2a4dcf6e-fbf4-481d-9bb3-2178d41edd18, play-fork-run-0121093f-67e6-45f6-b252-80232938087e
+Taking next connection to: 51013
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 51013
