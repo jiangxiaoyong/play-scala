@@ -24,4 +24,5 @@ for( i <- 1 to 3) {
   }
 }
 
-listBuffer.toString()
+msgQueue.queue.size
+

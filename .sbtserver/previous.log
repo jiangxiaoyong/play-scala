@@ -1,4 +1,4 @@
-New log file opened at Fri Jul 15 18:15:12 EDT 2016 by 3720@jxys-MacBook-Pro.local
+New log file opened at Fri Jul 15 19:05:25 EDT 2016 by 1124@jxys-MacBook-Pro.local
 == resolving dependencies org.apache.httpcomponents#httpclient;4.0.1->commons-codec#commons-codec;1.3 [compile->compile(*)]
 == resolving dependencies org.apache.httpcomponents#httpclient;4.0.1->commons-codec#commons-codec;1.10 [compile->compile(*)]
 == resolving dependencies com.typesafe.play#play-ws_2.11;2.5.4->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
@@ -3653,7 +3653,7 @@ all callers are evicted for javax.activation#activation;1.1: evicting too
 	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.11;2.3.8!akka-actor_2.11.jar
 	[NOT REQUIRED] com.typesafe.akka#akka-testkit_2.11;2.3.8!akka-testkit_2.11.jar
 	[NOT REQUIRED] com.typesafe#config;1.2.1!config.jar(bundle)
-:: resolution report :: resolve 4773ms :: artifacts dl 118ms
+:: resolution report :: resolve 5041ms :: artifacts dl 126ms
 	report for play-scala#play-scala_2.11;1.0-SNAPSHOT compile produced in /Users/jxy/IdeaProjects/play-scala/target/resolution-cache/reports/play-scala-play-scala_2.11-compile.xml
 	report for play-scala#play-scala_2.11;1.0-SNAPSHOT runtime produced in /Users/jxy/IdeaProjects/play-scala/target/resolution-cache/reports/play-scala-play-scala_2.11-runtime.xml
 	report for play-scala#play-scala_2.11;1.0-SNAPSHOT test produced in /Users/jxy/IdeaProjects/play-scala/target/resolution-cache/reports/play-scala-play-scala_2.11-test.xml
@@ -3668,27 +3668,21 @@ all callers are evicted for javax.activation#activation;1.1: evicting too
 	report for play-scala#play-scala_2.11;1.0-SNAPSHOT pom produced in /Users/jxy/IdeaProjects/play-scala/target/resolution-cache/reports/play-scala-play-scala_2.11-pom.xml
 	report for play-scala#play-scala_2.11;1.0-SNAPSHOT scala-tool produced in /Users/jxy/IdeaProjects/play-scala/target/resolution-cache/reports/play-scala-play-scala_2.11-scala-tool.xml
 	report for play-scala#play-scala_2.11;1.0-SNAPSHOT fork-run produced in /Users/jxy/IdeaProjects/play-scala/target/resolution-cache/reports/play-scala-play-scala_2.11-fork-run.xml
-	resolve done (4773ms resolve - 118ms download)
+	resolve done (5041ms resolve - 126ms download)
 Read from stdout: Done updating.
 Done updating.
-Total time: 6 s, completed 15-Jul-2016 6:15:14 PM
+Total time: 6 s, completed 15-Jul-2016 7:05:28 PM
 > server-post-command-cleanup
 > server-handle-next-server-request
 > root/playForkNotifyStart http://localhost:9000
 Evaluating tasks: *:playForkNotifyStart
-Running task... Cancel: sbt.server.ServerTaskCancellation@5c054922, check cycles: false
-Total time: 0 s, completed 15-Jul-2016 6:15:16 PM
+Running task... Cancel: sbt.server.ServerTaskCancellation@4d801419, check cycles: false
+Total time: 0 s, completed 15-Jul-2016 7:05:31 PM
 > server-post-command-cleanup
 > server-handle-next-server-request
 > {file:/Users/jxy/IdeaProjects/play-scala/}root/*:playForkReload
 Evaluating tasks: *:playForkReload
-Running task... Cancel: sbt.server.ServerTaskCancellation@485a7191, check cycles: false
-SLF4J: The following set of substitute loggers may have been accessed
-SLF4J: during the initialization phase. Logging calls during this
-SLF4J: phase were not honored. However, subsequent logging calls to these
-SLF4J: loggers will work as normally expected.
-SLF4J: See also http://www.slf4j.org/codes.html#substituteLogger
-SLF4J: org.webjars.CloseQuietly
+Running task... Cancel: sbt.server.ServerTaskCancellation@d283179, check cycles: false
 
 Initial source changes: 
 	removed:Set()
@@ -3705,16 +3699,16 @@ Sources indirectly invalidated by:
 	external source: Set()
 All initially invalidated sources: Set(/Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala)
 
+Warning: node.js detection failed, sbt will use the Rhino based Trireme JavaScript engine instead to run JavaScript assets compilation, which in some cases may be orders of magnitude slower than using node.js.
 Read from stdout: Compiling 1 Scala source to /Users/jxy/IdeaProjects/play-scala/target/scala-2.11/classes...
 Compiling 1 Scala source to /Users/jxy/IdeaProjects/play-scala/target/scala-2.11/classes...
 Getting compiler-interface from component compiler for Scala 2.11.7
 Other repositories:
 Default repositories:
-Warning: node.js detection failed, sbt will use the Rhino based Trireme JavaScript engine instead to run JavaScript assets compilation, which in some cases may be orders of magnitude slower than using node.js.
 Getting compiler-interface from component compiler for Scala 2.11.7
 Other repositories:
 Default repositories:
-Running cached compiler 767929bc, interfacing (CompilerInterface) with Scala compiler version 2.11.7
+Running cached compiler 214c472d, interfacing (CompilerInterface) with Scala compiler version 2.11.7
 Calling Scala compiler with arguments  (CompilerInterface):
 	-deprecation
 	-unchecked
@@ -3724,33 +3718,33 @@ Calling Scala compiler with arguments  (CompilerInterface):
 	/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/classes:/Users/jxy/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.11.7.jar
 	-classpath
 	/Users/jxy/IdeaProjects/play-scala/target/scala-2.11/classes:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.typesafe.play/twirl-api_2.11/1.1.1/jars/twirl-api_2.11.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/org.apache.commons/commons-lang3/3.4/jars/commons-lang3.jar:/Users/jxy/.ivy2/cache/org.scala-lang.modules/scala-xml_2.11/bundles/scala-xml_2.11-1.0.1.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-server_2.11/jars/play-server_2.11-2.5.4.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play_2.11/jars/play_2.11-2.5.4.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/build-link/jars/build-link-2.5.4.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-exceptions/jars/play-exceptions-2.5.4.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-iteratees_2.11/jars/play-iteratees_2.11-2.5.4.jar:/Users/jxy/.ivy2/cache/org.scala-stm/scala-stm_2.11/jars/scala-stm_2.11-0.7.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.typesafe/config/1.3.0/bundles/config.jar:/Users/jxy/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.1.7.jar:/Users/jxy/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.1.7.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-json_2.11/jars/play-json_2.11-2.5.4.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-functional_2.11/jars/play-functional_2.11-2.5.4.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-datacommons_2.11/jars/play-datacommons_2.11-2.5.4.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/joda-time/joda-time/2.9.2/jars/joda-time.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/org.joda/joda-convert/1.8.1/jars/joda-convert.jar:/Users/jxy/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.11.7.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.fasterxml.jackson.core/jackson-core/2.7.1/bundles/jackson-core.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.fasterxml.jackson.core/jackson-annotations/2.7.1/bundles/jackson-annotations.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.fasterxml.jackson.core/jackson-databind/2.7.1/bundles/jackson-databind.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.7.1/bundles/jackson-datatype-jdk8.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.7.1/bundles/jackson-datatype-jsr310.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-netty-utils/jars/play-netty-utils-2.5.4.jar:/Users/jxy/.ivy2/cache/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.7.19.jar:/Users/jxy/.ivy2/cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.19.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-streams_2.11/jars/play-streams_2.11-2.5.4.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/org.reactivestreams/reactive-streams/1.0.0/jars/reactive-streams.jar:/Users/jxy/.ivy2/cache/com.typesafe.akka/akka-stream_2.11/jars/akka-stream_2.11-2.4.4.jar:/Users/jxy/.ivy2/cache/com.typesafe.akka/akka-actor_2.11/jars/akka-actor_2.11-2.4.4.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/org.scala-lang.modules/scala-java8-compat_2.11/0.7.0/bundles/scala-java8-compat_2.11.jar:/Users/jxy/.ivy2/cache/com.typesafe/ssl-config-akka_2.11/bundles/ssl-config-akka_2.11-0.2.1.jar:/Users/jxy/.ivy2/cache/com.typesafe/ssl-config-core_2.11/bundles/ssl-config-core_2.11-0.2.1.jar:/Users/jxy/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/bundles/scala-parser-combinators_2.11-1.0.4.jar:/Users/jxy/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.11/jars/akka-slf4j_2.11-2.4.4.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/commons-codec/commons-codec/1.10/jars/commons-codec.jar:/Users/jxy/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.11.0.jar:/Users/jxy/.ivy2/cache/xml-apis/xml-apis/jars/xml-apis-1.4.01.jar:/Users/jxy/.ivy2/cache/javax.transaction/jta/jars/jta-1.1.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.google.inject/guice/4.0/jars/guice.jar:/Users/jxy/.ivy2/cache/javax.inject/javax.inject/jars/javax.inject-1.jar:/Users/jxy/.ivy2/cache/aopalliance/aopalliance/jars/aopalliance-1.0.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.google.inject.extensions/guice-assistedinject/4.0/jars/guice-assistedinject.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-netty-server_2.11/jars/play-netty-server_2.11-2.5.4.jar:/Users/jxy/.ivy2/cache/com.typesafe.netty/netty-reactive-streams-http/jars/netty-reactive-streams-http-1.0.6.jar:/Users/jxy/.ivy2/cache/com.typesafe.netty/netty-reactive-streams/jars/netty-reactive-streams-1.0.6.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/io.netty/netty-handler/4.0.36.Final/jars/netty-handler.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/io.netty/netty-buffer/4.0.36.Final/jars/netty-buffer.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/io.netty/netty-common/4.0.36.Final/jars/netty-common.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/io.netty/netty-transport/4.0.36.Final/jars/netty-transport.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/io.netty/netty-codec/4.0.36.Final/jars/netty-codec.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/io.netty/netty-codec-http/4.0.36.Final/jars/netty-codec-http.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/io.netty/netty-transport-native-epoll/4.0.36.Final/jars/netty-transport-native-epoll-linux-x86_64.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-logback_2.11/jars/play-logback_2.11-2.5.4.jar:/Users/jxy/.ivy2/cache/org.apache.kafka/kafka_2.11/jars/kafka_2.11-0.10.0.0.jar:/Users/jxy/.ivy2/cache/com.101tec/zkclient/jars/zkclient-0.8.jar:/Users/jxy/.ivy2/cache/org.slf4j/slf4j-log4j12/jars/slf4j-log4j12-1.7.21.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/org.slf4j/slf4j-api/1.7.21/jars/slf4j-api.jar:/Users/jxy/.ivy2/cache/log4j/log4j/bundles/log4j-1.2.17.jar:/Users/jxy/.ivy2/cache/org.apache.zookeeper/zookeeper/jars/zookeeper-3.4.6.jar:/Users/jxy/.ivy2/cache/jline/jline/jars/jline-0.9.94.jar:/Users/jxy/.ivy2/cache/junit/junit/jars/junit-3.8.1.jar:/Users/jxy/.ivy2/cache/io.netty/netty/bundles/netty-3.7.0.Final.jar:/Users/jxy/.ivy2/cache/com.yammer.metrics/metrics-core/jars/metrics-core-2.2.0.jar:/Users/jxy/.ivy2/cache/org.apache.kafka/kafka-clients/jars/kafka-clients-0.10.0.0.jar:/Users/jxy/.ivy2/cache/net.jpountz.lz4/lz4/jars/lz4-1.3.0.jar:/Users/jxy/.ivy2/cache/org.xerial.snappy/snappy-java/bundles/snappy-java-1.1.2.4.jar:/Users/jxy/.ivy2/cache/net.sf.jopt-simple/jopt-simple/jars/jopt-simple-4.9.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-jdbc_2.11/jars/play-jdbc_2.11-2.5.4.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-jdbc-api_2.11/jars/play-jdbc-api_2.11-2.5.4.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.jolbox/bonecp/0.8.0.RELEASE/bundles/bonecp.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.zaxxer/HikariCP/2.4.3/bundles/HikariCP.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.googlecode.usc/jdbcdslog/1.0.6.2/jars/jdbcdslog.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.h2database/h2/1.4.191/jars/h2.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/tyrex/tyrex/1.0.1/jars/tyrex.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-cache_2.11/jars/play-cache_2.11-2.5.4.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/net.sf.ehcache/ehcache-core/2.6.11/jars/ehcache-core.jar:/Users/jxy/.ivy2/cache/com.typesafe.play/play-ws_2.11/jars/play-ws_2.11-2.5.4.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/com.google.guava/guava/19.0/bundles/guava.jar:/Users/jxy/.ivy2/cache/org.asynchttpclient/async-http-client/jars/async-http-client-2.0.2.jar:/Users/jxy/.ivy2/cache/org.asynchttpclient/netty-resolver-dns/jars/netty-resolver-dns-2.0.2.jar:/Users/jxy/.ivy2/cache/org.asynchttpclient/netty-resolver/jars/netty-resolver-2.0.2.jar:/Users/jxy/.ivy2/cache/org.asynchttpclient/netty-codec-dns/jars/netty-codec-dns-2.0.2.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/org.javassist/javassist/3.20.0-GA/bundles/javassist.jar:/Users/jxy/.ivy2/cache/oauth.signpost/signpost-core/jars/signpost-core-1.2.1.2.jar:/Users/jxy/.ivy2/cache/oauth.signpost/signpost-commonshttp4/jars/signpost-commonshttp4-1.2.1.2.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/org.apache.httpcomponents/httpcore/4.0.1/jars/httpcore.jar:/Users/jxy/Downloads/activator-dist-1.3.10/repository/org.apache.httpcomponents/httpclient/4.0.1/jars/httpclient.jar:/Users/jxy/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar
-Read from stdout: /Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:45: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
-/Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:45: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
+Read from stdout: /Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:29: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
+/Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:29: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
 Read from stdout: def wsTime = WebSocket.using[String] {
   def wsTime = WebSocket.using[String] {
 Read from stdout: ^
                          ^
-Read from stdout: /Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:49: method timeout in object Promise is deprecated: Use akka.pattern.after(duration, actorSystem.scheduler)(Future(message)) instead
-/Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:49: method timeout in object Promise is deprecated: Use akka.pattern.after(duration, actorSystem.scheduler)(Future(message)) instead
-Read from stdout: val outEnumerator: Enumerator[String] = Enumerator.repeatM(Promise.timeout(s"${new KafkaConsumer("192.168.99.100:2181","1","sentiment",10).run}", 1000))
-      val outEnumerator: Enumerator[String] = Enumerator.repeatM(Promise.timeout(s"${new KafkaConsumer("192.168.99.100:2181","1","sentiment",10).run}", 1000))
+Read from stdout: /Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:33: method timeout in object Promise is deprecated: Use akka.pattern.after(duration, actorSystem.scheduler)(Future(message)) instead
+/Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:33: method timeout in object Promise is deprecated: Use akka.pattern.after(duration, actorSystem.scheduler)(Future(message)) instead
+Read from stdout: val outEnumerator: Enumerator[String] = Enumerator.repeatM(Promise.timeout({
+      val outEnumerator: Enumerator[String] = Enumerator.repeatM(Promise.timeout({
 Read from stdout: ^
                                                                          ^
-Read from stdout: /Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:56: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
-/Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:56: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
+Read from stdout: /Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:46: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
+/Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:46: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
 Read from stdout: def wsEcho = WebSocket.using[String] {
   def wsEcho = WebSocket.using[String] {
 Read from stdout: ^
                          ^
-Read from stdout: /Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:72: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
-/Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:72: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
+Read from stdout: /Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:62: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
+/Users/jxy/IdeaProjects/play-scala/app/controllers/Application.scala:62: method using in object WebSocket is deprecated: Use accept with an Akka streams flow instead
 Read from stdout: def socket = WebSocket.using[String] { request =>
   def socket = WebSocket.using[String] { request =>
 Read from stdout: ^
                          ^
 Read from stdout: four warnings found
 four warnings found
-Scala compilation took 8.609380986 s
+Scala compilation took 11.592916396 s
 New invalidations:
 	Set()
 Initial set of included nodes: Set()
@@ -3761,6 +3755,6 @@ Copy resource mappings:
 	(/Users/jxy/IdeaProjects/play-scala/conf/application.conf,/Users/jxy/IdeaProjects/play-scala/target/scala-2.11/classes/application.conf)
 	(/Users/jxy/IdeaProjects/play-scala/conf/logback.xml,/Users/jxy/IdeaProjects/play-scala/target/scala-2.11/classes/logback.xml)
 	(/Users/jxy/IdeaProjects/play-scala/conf/routes,/Users/jxy/IdeaProjects/play-scala/target/scala-2.11/classes/routes)
-Total time: 11 s, completed 15-Jul-2016 6:15:53 PM
+Total time: 14 s, completed 15-Jul-2016 7:07:57 PM
 > server-post-command-cleanup
 > server-handle-next-server-request

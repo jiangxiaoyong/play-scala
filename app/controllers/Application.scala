@@ -26,27 +26,17 @@ class Application @Inject()(ws: WSClient) extends Controller {
   }
 
   // sends the time every second, ignores any input
-//  def wsTime = WebSocket.using[String] {
-//    request =>
-//      Logger.info(s"wsTime, client connected.")
-//      new KafkaConsumer("192.168.99.100:2181","1","sentiment",10).run
-//      val outEnumerator: Enumerator[String] = Enumerator.repeatM(Promise.timeout({
-//        val listBuffer = new ListBuffer[String]
-//        for(i <- 1 to 10) {
-//          if(!msgQueue.queue.isEmpty) listBuffer += msgQueue.readQueue
-//        }
-//        listBuffer.toString()
-//      }, 1000))
-//      val inIteratee: Iteratee[String, Unit] = Iteratee.ignore[String]
-//
-//      (inIteratee, outEnumerator)
-//  }
-
   def wsTime = WebSocket.using[String] {
     request =>
       Logger.info(s"wsTime, client connected.")
-
-      val outEnumerator: Enumerator[String] = Enumerator.repeatM(Promise.timeout(s"${new KafkaConsumer("192.168.99.100:2181","1","sentiment",10).run}", 1000))
+      new KafkaConsumer("192.168.99.100:2181","1","sentiment",10).run
+      val outEnumerator: Enumerator[String] = Enumerator.repeatM(Promise.timeout({
+        val listBuffer = new ListBuffer[String]
+        for(i <- 1 to 1000) {
+          if(!msgQueue.queue.isEmpty) listBuffer += msgQueue.readQueue
+        }
+        listBuffer.toString()
+      }, 100))
       val inIteratee: Iteratee[String, Unit] = Iteratee.ignore[String]
 
       (inIteratee, outEnumerator)
@@ -111,32 +101,20 @@ class KafkaConsumer (val zookeeper: String,
     val streams = consumerMap.get(topic).get
 
     for (stream <- streams) {
-//      pool.submit(new Buffer(stream))
-
-      Logger.info("befre")
-      Logger.info("stream interator = " + stream.iterator())
-      Logger.info("after")
-      val it = stream.iterator()
-      Logger.info("interator = " + it)
-      while (it.hasNext()) {
-        val msg = new String(it.next().message())
-        System.out.println(System.currentTimeMillis() + "msg: " + msg)
-      }
+      pool.submit(new Buffer(stream)) //fork new thread to buffer kafka streaming data
     }
   }
 }
 
 class Buffer(val stream: KafkaStream[Array[Byte], Array[Byte]]) extends Logging with Runnable {
   def run = {
-    System.out.println("inside new thread !!!")
     val it = stream.iterator()
 
     while (it.hasNext()) {
-      System.out.println("in the while loop")
       val msg = new String(it.next().message())
       msgQueue.writeQueue(msg)
-      System.out.println("queue size " + msgQueue.queue.size)
-      System.out.println(System.currentTimeMillis() + "msg: " + msg)
+      Logger.info("queue size " + msgQueue.queue.size)
+      Logger.info(System.currentTimeMillis() + "msg: " + msg)
     }
   }
 }
