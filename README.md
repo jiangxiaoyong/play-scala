@@ -25,7 +25,7 @@ Fetch data from play WebSocket
 
 How to run entire Twitter Streaming Sentiment Analysis
 ======================================================
-- please see instructions of another git repo
-[Running whole app](https://github.com/jiangxiaoyong/StreamingTwitterSentimentAnalysis)
+- please see instructions of another git repo to
+[Running the whole app](https://github.com/jiangxiaoyong/StreamingTwitterSentimentAnalysis)
 
 
