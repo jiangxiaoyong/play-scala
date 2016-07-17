@@ -26,14 +26,14 @@ class Application @Inject()(implicit system: ActorSystem, materializer: Material
 
   //check that server is running
   def index = Action {
-    Ok("Server is running : )")
+    Ok(views.html.index("Twitter Sentiment Analysis"))
   }
 
   // sends the time every second, ignores any input
   def wsTime = WebSocket.using[String] {
     request =>
       Logger.info(s"wsTime, client connected.")
-      new KafkaConsumer("192.168.99.100:2181","1","sentiment",10).run
+      new KafkaConsumer("192.168.99.100:2181","1","sentiment").run
       val outEnumerator: Enumerator[String] = Enumerator.repeatM(Promise.timeout({
         val listBuffer = new ListBuffer[String]
         for(i <- 1 to 1000) {
@@ -54,6 +54,7 @@ class Application @Inject()(implicit system: ActorSystem, materializer: Material
     }
   }
 
+  //endpoint that send streaming data buffered in queue to client
   def socket = WebSocket.accept[String, String] { request =>
     ActorFlow.actorRef(out => MyWebSocketActor.props(out))
   }
@@ -63,29 +64,38 @@ object MyWebSocketActor {
   def props(out: ActorRef) = Props(new MyWebSocketActor(out))
 }
 
+/**
+  * Describe how to response msg received from client
+  *
+  * @param out
+  */
 class MyWebSocketActor(out: ActorRef) extends Actor {
   def receive = {
     case msg: String =>
       Logger.info(s"actor, received message: $msg")
-      if (msg == "goodbye") self ! PoisonPill
+      if (msg == "bye") self ! PoisonPill // closing WebSocket when receive "bye" msg from client
+      else if ( msg == "start") new KafkaConsumer("192.168.99.100:2181","1","sentiment").run
       else {
-        new KafkaConsumer("192.168.99.100:2181","1","sentiment",10).run
-        if(!msgQueue.queue.isEmpty) {
-          for(q <- msgQueue.queue) {
-            out ! ("I received your message: " + q)
-          }
+         while(!msgQueue.queue.isEmpty) {
+            out ! (msgQueue.readQueue)
         }
       }
   }
 }
 
+/**
+  * An Kafka consumer which will read data from Kafka about specific topic
+  *
+  * @param zookeeper
+  * @param groupId
+  * @param topic
+  */
 class KafkaConsumer (val zookeeper: String,
                      val groupId: String,
-                     val topic: String,
-                     val delay: Long) extends Logging {
+                     val topic: String) extends Logging {
   val config = createKafkaConsumerConfig(zookeeper, groupId)
   val consumer = Consumer.create(config)
-  var pool: ExecutorService = Executors.newFixedThreadPool(2)
+  var pool: ExecutorService = Executors.newFixedThreadPool(1)
 
   def createKafkaConsumerConfig(zookeeper: String, groupId: String): ConsumerConfig = {
     val props = new Properties()
@@ -110,6 +120,11 @@ class KafkaConsumer (val zookeeper: String,
   }
 }
 
+/**
+  * Buffer all data fetched from a kafka topic into queue, and the data in this queue will be send over WebSocket
+  *
+  * @param stream
+  */
 class Buffer(val stream: KafkaStream[Array[Byte], Array[Byte]]) extends Logging with Runnable {
   def run = {
     val it = stream.iterator()

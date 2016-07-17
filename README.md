@@ -8,53 +8,24 @@ docker run -it --name playScala --expose 9000 --expose 9090 -p 9000:9000 -p 9090
 - port 9000 is server listening port
 - port 9090 is debugging port
 
+Running instructions
+===============================
+Activator
+-------------------------------
+- use activator to run play application
+```
+$ activator run
+```
+Fetch data from play WebSocket
+------------------------------
+### In the root path of web app
+- connect to WebSocket of play server
+- send 'start' message to server to trigger running of Kafka consumer which consume message of specific topic
+- send any message to receive data
 
-This is your new Play application
-=================================
+How to run entire Twitter Streaming Sentiment Analysis
+======================================================
+- please see instructions of another git repo
+[Running whole app](https://github.com/jiangxiaoyong/StreamingTwitterSentimentAnalysis)
 
-This file will be packaged with your application when using `activator dist`.
 
-There are several demonstration files available in this template.
-
-Controllers
-===========
-
-- HomeController.scala:
-
-  Shows how to handle simple HTTP requests.
-
-- AsyncController.scala:
-
-  Shows how to do asynchronous programming when handling a request.
-
-- CountController.scala:
-
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
-
-Components
-==========
-
-- Module.scala:
-
-  Shows how to use Guice to bind all the components needed by your application.
-
-- Counter.scala:
-
-  An example of a component that contains state, in this case a simple counter.
-
-- ApplicationTimer.scala:
-
-  An example of a component that starts when the application starts and stops
-  when the application stops.
-
-Filters
-=======
-
-- Filters.scala:
-
-  Creates the list of HTTP filters used by your application.
-
-- ExampleFilter.scala
-
-  A simple filter that adds a header to every response.

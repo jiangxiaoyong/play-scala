@@ -12,16 +12,14 @@ object msgQueue {
   }
 }
 
-for( i <- 1 to 3) {
+for( i <- 1 to 4) {
   msgQueue.writeQueue("a")
 }
 
 
 val listBuffer = new ListBuffer[String]
-for( q <- msgQueue.queue) {
-  if (!msgQueue.queue.isEmpty) {
-    listBuffer += msgQueue.readQueue
-  }
+while (!msgQueue.queue.isEmpty) {
+  listBuffer += msgQueue.readQueue
 }
 
 msgQueue.queue.size

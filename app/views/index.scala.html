@@ -4,17 +4,72 @@
  *@
 @(message: String)
 
-@*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
-@main("Welcome to Play") {
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>@message</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @play20.welcome(message, style = "Scala")
+  <script type="text/javascript">
+    var myWebSocket;
+    function connectToWS() {
+     var endpoint = document.getElementById("endpoint").value;
+     if (myWebSocket !== undefined) {
+      myWebSocket.close()
+     }
+     myWebSocket = new WebSocket(endpoint);
+     myWebSocket.onmessage = function(event) {
+      var leng;
+      if (event.data.size === undefined) {
+       leng = event.data.length
+      } else {
+       leng = event.data.size
+      }
+      console.log("onmessage. size: " + leng + ", content: " + event.data);
+      $("#listOfMsg").append("<li>" + event.data +"</li>")
+     }
+     myWebSocket.onopen = function(evt) {
+      console.log("onopen.");
+     };
+     myWebSocket.onclose = function(evt) {
+      console.log("onclose.");
+     };
+     myWebSocket.onerror = function(evt) {
+      console.log("Error!");
+     };
+    }
+    function sendMsg() {
+     var message = document.getElementById("myMessage").value;
+     myWebSocket.send(message);
+    }
+    function closeConn() {
+     myWebSocket.close();
+    }
+    </script>
+ </head>
+ <body>
+  <h1>Fetching data from kafka</h1>
+  <h2>Twitter Sentiment Analysis streamming data subscribed from Kafka in topic 'sentiment'</h2>
+  <div id="console">
+   <form>
+	        connection to: <input type="text" id="endpoint" name="endpoint" value="ws://localhost:9000/socket"  style="width: 200px"><br>
+	    </form>
 
-}
+   <input type="button" onclick="connectToWS()" value="connect to WebSocket endpoint" /><br><br>
+
+   <form>
+	        message: <input type="text" id="myMessage" name="myMessage" value="start"><br>
+	    </form>
+
+   <input type="button" onclick="sendMsg()" value="Send message" />
+
+   <input type="button" onclick="closeConn()" value="Close connection" />
+  </div>
+
+  <div id="msgArea">
+   <ul id="listOfMsg">
+		</ul>
+  </div>
+
+ </body>
+</html>
