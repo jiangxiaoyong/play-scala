@@ -18,11 +18,12 @@ for( i <- 1 to 3) {
 
 
 val listBuffer = new ListBuffer[String]
-for( i <- 1 to 3) {
+for( q <- msgQueue.queue) {
   if (!msgQueue.queue.isEmpty) {
     listBuffer += msgQueue.readQueue
   }
 }
 
 msgQueue.queue.size
+listBuffer.toString()
 

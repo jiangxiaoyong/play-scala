@@ -3,7 +3,7 @@ package controllers
 import java.io.File
 import javax.inject.Inject
 
-import akka.actor.{Actor, ActorRef, PoisonPill, Props}
+import akka.actor.{Actor, ActorRef, ActorSystem, PoisonPill, Props}
 import play.api.Play.current
 import play.api._
 import play.api.libs.concurrent.Promise
@@ -15,10 +15,14 @@ import kafka.utils.Logging
 import java.util.Properties
 import java.util.concurrent.{ExecutorService, Executors}
 
+import akka.stream.Materializer
+import akka.stream.scaladsl.Flow
+import play.api.libs.streams.ActorFlow
+
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.collection.mutable.{ListBuffer, Queue}
 
-class Application @Inject()(ws: WSClient) extends Controller {
+class Application @Inject()(implicit system: ActorSystem, materializer: Materializer) extends Controller {
 
   //check that server is running
   def index = Action {
@@ -43,35 +47,35 @@ class Application @Inject()(ws: WSClient) extends Controller {
   }
 
   // endpoint that opens an echo websocket
-  def wsEcho = WebSocket.using[String] {
+  def wsEcho = WebSocket.accept[String, String] {
     request => {
       Logger.info(s"wsEcho, client connected.")
-      var channel: Option[Concurrent.Channel[String]] = None
-      val outEnumerator: Enumerator[String] = Concurrent.unicast(c => channel = Some(c))
-
-      val inIteratee: Iteratee[String, Unit] = Iteratee.foreach[String](receivedString => {
-        // send string back
-        Logger.info(s"wsEcho, received: $receivedString")
-        channel.foreach(_.push(receivedString))
-      })
-
-      (inIteratee, outEnumerator)
+      Flow[String].map(msg => "I received your message: " + msg)
     }
   }
 
-  def socket = WebSocket.using[String] { request =>
+  def socket = WebSocket.accept[String, String] { request =>
+    ActorFlow.actorRef(out => MyWebSocketActor.props(out))
+  }
+}
 
-    // Concurrent.broadcast returns (Enumerator, Concurrent.Channel)
-    val (out, channel) = Concurrent.broadcast[String]
+object MyWebSocketActor {
+  def props(out: ActorRef) = Props(new MyWebSocketActor(out))
+}
 
-    // log the message to stdout and send response back to client
-    val in = Iteratee.foreach[String] {
-      msg => println(msg)
-        // the Enumerator returned by Concurrent.broadcast subscribes to the channel and will
-        // receive the pushed messages
-        channel push("I received your message: " + msg)
-    }
-    (in,out)
+class MyWebSocketActor(out: ActorRef) extends Actor {
+  def receive = {
+    case msg: String =>
+      Logger.info(s"actor, received message: $msg")
+      if (msg == "goodbye") self ! PoisonPill
+      else {
+        new KafkaConsumer("192.168.99.100:2181","1","sentiment",10).run
+        if(!msgQueue.queue.isEmpty) {
+          for(q <- msgQueue.queue) {
+            out ! ("I received your message: " + q)
+          }
+        }
+      }
   }
 }
 
